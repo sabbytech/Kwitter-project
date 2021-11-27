@@ -14,7 +14,9 @@ username = localStorage.getItem("user_name");
 function getData() {firebase.database().ref("/").on('value', function(snapshot) {document.getElementById("output").innerHTML = "";snapshot.forEach(function(childSnapshot) {childKey  = childSnapshot.key;
        Room_names = childKey;
       //Start code
-      
+      console.log("Room name is - "+Room_names); 
+    Row_output = "<div class='room_name' id=" + Room_names +" onclick='redirectToRoomName()'> # " + Room_names + "</div>";
+     document.getElementById("output").innerHTML += Row_output; 
       //End code
       });});}
 getData();
